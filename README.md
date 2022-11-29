@@ -10,3 +10,7 @@ An input of `a <corgi|cat> wearing <goggles|a hat>`
 Will output 4 prompts: `a corgi wearing goggles`, `a corgi wearing a hat`, `a cat wearing goggles`, `a cat wearing a hat`
 
 Each output prompt will be generated for each seed when using a `batch count` > 1. `batch size` is ignored.
+
+## Note
+
+This modification to the original Improved Prompt Matrix script replaces each batch having the same seed with every image having its own seed. That's why it's seedy.
