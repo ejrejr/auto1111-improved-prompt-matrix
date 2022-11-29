@@ -8,7 +8,7 @@ from modules.processing import process_images, StableDiffusionProcessingTxt2Img
 
 class Script(scripts.Script):
     def title(self):
-        return "Improved prompt matrix"
+        return "Improved prompt matrix - Seedy!"
 
     def ui(self, is_img2img):
         dummy = gr.Checkbox(label="Usage: a <corgi|cat> wearing <goggles|a hat>")
@@ -57,7 +57,7 @@ class Script(scripts.Script):
         shared.total_tqdm.updateTotal(total_steps)
 
         p.prompt = all_prompts * p.n_iter
-        p.seed = [item for item in range(int(p.seed), int(p.seed) + p.n_iter) for _ in range(len(all_prompts))]
+        p.seed = [item for item in range(int(p.seed), int(p.seed) + p.n_iter * len(all_prompts))]
         p.n_iter = total_images
         p.do_not_save_grid = True
         p.prompt_for_display = original_prompt
